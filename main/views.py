@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from . import forms
 
 # Create your views here.
 def start(request):
@@ -7,4 +8,5 @@ def start(request):
     return render(request,'start.html')
 
 def login(request):
-    return render(request,'login.html')
+    objects = {"form" : forms.myAuthenticationForm}
+    return render(request,'login.html',objects)

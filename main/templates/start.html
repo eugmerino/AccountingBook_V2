@@ -12,69 +12,63 @@
 </head>
 
 <body>
-    <div class="container-fluid body-background">
-        <div class="row">
-            <div class="col d-flex justify-content-center align-items-center" style="height: 100vh;">
-                <img src="{% static 'img/calcular.png' %}" class="img-fluid">
+    <div class="container-fluid">
+
+        <div class="row align-items-center">
+            <div class="col-12 col-md-5 d-flex justify-content-center pt-4">
+                <img src="{% static 'img/educacion.png' %}" alt="aquí deberia de ir el logo" class="img-fluid">
             </div>
-            <div class="col-md-8">
-                <div class="row text-center pt-5 text-light">
-                    <h1>Accounting Book</h1>
-                </div>
-                <div class="row text-center text-light">
-                    <p>AccountingBook es una plataforma integral diseñada para gestionar la contabilidad de empresas de
-                        forma automatizada
-                        eficiente. Con esta aplicación, los usuarios pueden llevar el registro completo de las
-                        operaciones contables, generar
-                        informes financieros en tiempo real y automatizar tareas rutinarias como el cálculo de impuestos
-                        y la creación de balances.
-                        La aplicación cumple con las normativas contables locales, ofreciendo seguridad y facilidad de
-                        uso para que las empresas optimicen su
-                        gestión financiera con menos esfuerzo.</p>
-                </div>
-                <div class="row">
-                    <h1 class="text-light text-center">Desarrolladores</h1>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="card m-1  " style="width: 11rem;">
-                        <img class="card-img-top" src="{% static 'img/usuario.png' %}" alt="usuario">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Alejandro Flores<br>FR21018</h5>
-                        </div>
-                    </div>
-                    <div class="card m-1" style="width: 11rem;">
-                        <img class="card-img-top" src="{% static 'img/usuario.png' %}" alt="usuario">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Eugenio Merino<br>(No se)</h5>
-                        </div>
-                    </div>
-                    <div class="card m-1" style="width: 11rem;">
-                        <img class="card-img-top" src="{% static 'img/usuario.png' %}" alt="usuario">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Ian Ponce<br>(No se)</h5>
-                        </div>
-                    </div>
-                    <div class="card m-1" style="width: 11rem;">
-                        <img class="card-img-top" src="{% static 'img/usuario.png' %}" alt="usuario">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Iveth Guerra<br>(No se)</h5>
-                        </div>
-                    </div>
-                    <div class="card m-1" style="width: 11rem;">
-                        <img class="card-img-top" src="{% static 'img/usuario.png' %}" alt="usuario">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Valeria Trujillo<br>(No se)</h5>
-                        </div>
-                    </div>
-                </div>
-                <form method="POST">
-                    {% csrf_token %}
-                    <div class="row justify-content-center">
-                        <button type="submit" class="btn btn-light mt-5 w-auto"><h5>Iniciar Sesión</h5></button>
-                    </div>
-                </form>
+            <div class="col-12 col-md-7 text-light text-center pt-4">
+                <h1>Accounting Book</h1>
+                <p>AccountingBook es una plataforma automatizada que facilita la gestión contable de empresas. Permite
+                    registrar operaciones, generar informes en tiempo real y automatizar cálculos como impuestos y
+                    balances, todo cumpliendo con las normativas locales, asegurando seguridad y facilidad de uso.</p>
             </div>
         </div>
+
+        <div class="row">
+            <h1 class="text-light text-center">Desarrolladores</h1>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="card m-1" style="width: 11rem;">
+                <img class="card-img-top" src="{% static 'img/usuario.png' %}" alt="usuario">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Alejandro Flores<br>FR21018</h5>
+                </div>
+            </div>
+            <div class="card m-1" style="width: 11rem;">
+                <img class="card-img-top" src="{% static 'img/usuario.png' %}" alt="usuario">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Eugenio Merino<br>MM19223</h5>
+                </div>
+            </div>
+            <div class="card m-1" style="width: 11rem;">
+                <img class="card-img-top" src="{% static 'img/usuario.png' %}" alt="usuario">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Ian Ponce<br>PM21023</h5>
+                </div>
+            </div>
+            <div class="card m-1" style="width: 11rem;">
+                <img class="card-img-top" src="{% static 'img/usuario.png' %}" alt="usuario">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Iveth Guerra<br>GM21127</h5>
+                </div>
+            </div>
+            <div class="card m-1" style="width: 11rem;">
+                <img class="card-img-top" src="{% static 'img/usuario.png' %}" alt="usuario">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Valeria Trujillo<br>TS21001</h5>
+                </div>
+            </div>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row justify-content-center pb-5">
+                <button type="submit" class="btn btn-light mt-5 w-auto"><h5>Iniciar Sesión</h5></button>
+            </div>
+        </form>
     </div>
 </body>
 
