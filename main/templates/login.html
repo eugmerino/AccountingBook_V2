@@ -15,16 +15,21 @@
     <div class="container-fluid">
         <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
             <h1 class="text-light">Inicio de sesión</h1>
-            <div class="card" style="width: 35rem;">
+            <div class="card" style="width: 40vh;">
                 <div class="card-body mt-5 mb-5">
                     <form method="POST">
                         {% csrf_token %}
                         {{form}}
-                        <div class="d-grid">
+                        <div class="d-grid mt-2">
                             <button type="submit" class="btn btn-dark">Iniciar Sesión</button>
                           </div>
                     </form>
                 </div>
+                {% if mensaje %}
+                <div class="card-footer text-center">
+                    {{mensaje}}
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 from django  import forms
 from django.contrib.auth.forms import AuthenticationForm
 
+# Devuelve el formulario para inicio de sesión
 class myAuthenticationForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
