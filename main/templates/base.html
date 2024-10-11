@@ -11,14 +11,14 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row flex">
+        <div class="row">
             <div class="col-12 col-md-3 bd-sidebar bg-white">
-                <h3>Accounting Book</h3>
-                <h4>{{user}}</h4>
-                
-                
+                <div class="nav flex-column">
+                    <h3>Accounting Book</h3>
+                    <h4>{{ user }}</h4>
+                </div>
             </div>
-            <div class="class-12 col-md-9 bd-content text-light">
+            <div class="col-12 col-md-9 bd-content text-light">
                 {% block content %}
                 {% endblock %}
             </div>
