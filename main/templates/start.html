@@ -8,9 +8,65 @@
     <title>Accounting Book</title>
 </head>
 <body class="bg-neutral-900">
-    <div class="container mx-auto text-white">
-        Hola
+    <div class="container mx-auto px-4 text-white">
+        <div class="flex flex-col md:flex-row items-center justify-center min-h-screen p-6 shadow-lg rounded-lg">
+            <!-- Sección de imagen -->
+            <div class="md:w-1/2">
+                <img src="{% static 'img/libro-abierto.png' %}" alt="Logotipo aplicación" class="w-full">
+            </div>
+            
+            <!-- Sección de contenido -->
+            <div class="md:w-1/2 p-6 text-center md:text-left">
+                <h1 class="text-4xl font-bold text-white mb-4">Accounting Book</h1>
+                <p class="text-white mb-4">
+                    AccountingBook es una plataforma automatizada que facilita la gestión contable de empresas.
+                    Permite registrar operaciones, generar informes en tiempo real y automatizar cálculos como 
+                    impuestos y balances, todo cumpliendo con las normativas locales.
+                </p>
+                
+                <!-- Cards responsivas -->
+                <h1 class="text-4xl font-bold text-white mb-4">Desarrolladores</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full">
+                        <img class="w-full h-48 object-cover" src="{% static 'img/avatar-de-hombre.png' %}" alt="Avatar de hombre">
+                        <div class="p-4">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-2">Desarrollador 1</h2>
+                            <p class="text-gray-600 mb-4">Descripción del desarrollador 1.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full">
+                        <img class="w-full h-48 object-cover" src="{% static 'img/avatar-de-hombre.png' %}" alt="Avatar de hombre">
+                        <div class="p-4">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-2">Desarrollador 2</h2>
+                            <p class="text-gray-600 mb-4">Descripción del desarrollador 2.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full">
+                        <img class="w-full h-48 object-cover" src="{% static 'img/avatar-de-hombre.png' %}" alt="Avatar de hombre">
+                        <div class="p-4">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-2">Desarrollador 3</h2>
+                            <p class="text-gray-600 mb-4">Descripción del desarrollador 3.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full">
+                        <img class="w-full h-48 object-cover" src="{% static 'img/avatar-de-hombre.png' %}" alt="Avatar de hombre">
+                        <div class="p-4">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-2">Desarrollador 4</h2>
+                            <p class="text-gray-600 mb-4">Descripción del desarrollador 4.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full">
+                        <img class="w-full h-48 object-cover" src="{% static 'img/avatar-de-hombre.png' %}" alt="Avatar de hombre">
+                        <div class="p-4">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-2">Desarrollador 5</h2>
+                            <p class="text-gray-600 mb-4">Descripción del desarrollador 5.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 mt-4">Leer Más</a>
+            </div>
+        </div>
     </div>
-    
 </body>
 </html>
