@@ -119,6 +119,7 @@ USE_TZ = True
 
 #Por defecto hay que agregarlo adentro del template, pero con / al principio ya se pueden poner ambos al mismo nivel
 STATIC_URL = '/static/' 
+#Si tu estilo no carga no te preocupes pequeño con ctrl+f5 se solucionan tus problemas
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
