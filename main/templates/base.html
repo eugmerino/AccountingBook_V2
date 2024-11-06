@@ -16,14 +16,14 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar Menu -->
-            <div class="col-12 col-md-3 bd-sidebar bg-white">
+            <div class="col-12 col-md-3 bd-sidebar" style="padding-top: 10px;">
                 <button class="btn btn-light d-md-none p-3 " type="button" data-bs-toggle="collapse"
                     data-bs-target="#menuSidebar" aria-expanded="false" aria-controls="menuSidebar">
                     <span class="menu-item-icon"><img src="{% static 'img/align-left.png' %}" alt="Icon Cuentas"></span>
-                    AccountingBook, {{user}}
+                    Menu
                 </button>
                 <div id="menuSidebar" class="collapse d-md-block">
-                    <div class="menu-container">
+                    <div class="menu-container flex-grow-1">
                         <div class="menu-header">AccountingBook</div>
                         <div class="username">{{user}}</div>
                         <a href="#" class="menu-item a-text-navbar text-decoration-none d-flex align-items-center">
@@ -40,6 +40,7 @@
                                 <small class="text-muted">Menu description.</small>
                             </div>
                         </a>
+                        <hr class="divider-rounded">
                         <a href="#" class="menu-item text-decoration-none d-flex align-items-center">
                             <span class="menu-item-icon"><img src="{% static 'img/book.png' %}" alt="Icon Libro Mayor"></span>
                             <div class="menu-item-text ms-2">
@@ -54,7 +55,6 @@
                                 <small class="text-muted">Menu description.</small>
                             </div>
                         </a>
-
                         <a href="#" class="menu-item text-decoration-none d-flex align-items-center">
                             <span class="menu-item-icon"><img src="{% static 'img/clipboard.png' %}" alt="Icon Estado de Resultado"></span>
                             <div class="menu-item-text ms-2">
@@ -62,7 +62,6 @@
                                 <small class="text-muted">Menu description.</small>
                             </div>
                         </a>
-
                         <a href="#" class="menu-item text-decoration-none d-flex align-items-center">
                             <span class="menu-item-icon"><img src="{% static 'img/archive.png' %}" alt="Icon Balance general"></span>
                             <div class="menu-item-text ms-2">
@@ -70,7 +69,6 @@
                                 <small class="text-muted">Menu description.</small>
                             </div>
                         </a>
-
                         <a href="#" class="menu-item text-decoration-none d-flex align-items-center menu-item-close">
                             <span class="menu-item-icon"><img src="{% static 'img/alert-circle.png' %}" alt="Icon Cierre del Ejercicio"></span>
                             <div class="menu-item-text ms-2">
@@ -78,10 +76,26 @@
                                 <small class="text-muted">Menu description.</small>
                             </div>
                         </a>
+                        <hr class="divider-rounded">
+                        <a href="#" class="menu-item text-decoration-none d-flex align-items-center">
+                            <span class="menu-item-icon"><img src="{% static 'img/users.png' %}" alt="Icon Balance general"></span>
+                            <div class="menu-item-text ms-2">
+                                <div>Empleados</div>
+                                <small class="text-muted">Menu description.</small>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="menu-item text-decoration-none d-flex align-items-center">
+                            <span class="menu-item-icon"><img src="{% static 'img/logout.png' %}" alt="Icon Balance general"></span>
+                            <div class="menu-item-text ms-2">
+                                <div>Cerrar Sesión</div>
+                                <small class="text-muted">Menu description.</small>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-9 bd-content text-light">
+            <div class="col-12 col-md-9">
                 {% block content %}
                 {% endblock %}
             </div>
