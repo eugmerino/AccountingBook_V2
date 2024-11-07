@@ -21,12 +21,19 @@ def loginView(request):
             return redirect('dashboard')
         else:
             mensaje = "Usuario o contraseña invalido"
-
     objects = {"form" : forms.myAuthenticationForm,
                "mensaje" : mensaje}
     return render(request,'login.html',objects)
 
+# Cerrar sesión
+@login_required(login_url="login")
+def logoutView(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('start')
+    return render(request,"logout.html")
+
 # Dashboard
-@login_required(login_url="/login")
+@login_required(login_url="login")
 def dashboard(request):
     return render(request,'dashboard.html')

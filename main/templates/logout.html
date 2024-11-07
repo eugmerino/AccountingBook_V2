@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
+        <h1 class="text-light">¿Desea cerrar Sesión?</h1>
+        <div class="card" style="width: 40vh;">
+            <div class="card-body mt-4 mb-4">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="d-grid mt-2">
+                        <button type="submit" class="btn btn-dark">Cerrar Sesion</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content%}
