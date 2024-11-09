@@ -24,8 +24,10 @@
                 </button>
                 <div id="menuSidebar" class="collapse d-md-block">
                     <div class="menu-container flex-grow-1">
-                        <div class="menu-header">AccountingBook</div>
-                        <div class="username">{{user}}</div>
+                        <a href="{% url "dashboard" %}">
+                            <div class="menu-header">AccountingBook</div>
+                            <div class="username">{{user}}</div>
+                        </a>
                         <a href="#" class="menu-item a-text-navbar text-decoration-none d-flex align-items-center">
                             <span class="menu-item-icon"><img src="{% static 'img/align-left.png' %}" alt="Icon Cuentas"></span>
                             <div class="menu-item-text ms-2">
@@ -70,10 +72,10 @@
                             </div>
                         </a>
                         <hr class="divider-rounded">
-                        <a href="#" class="menu-item text-decoration-none d-flex align-items-center">
+                        <a href="{% url 'empleados' %}" class="menu-item text-decoration-none d-flex align-items-center">
                             <span class="menu-item-icon"><img src="{% static 'img/users.png' %}" alt="Icon Balance general"></span>
                             <div class="menu-item-text ms-2">
-                                <div>Empleados</div>
+                                <div>Empresa</div>
                             </div>
                         </a>
                         

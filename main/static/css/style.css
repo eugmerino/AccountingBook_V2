@@ -2,6 +2,11 @@ body {
     background-color:#20232A;
 }
 
+a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
 .menu-container {
     padding: 20px;
     border-radius: 15px;
@@ -10,7 +15,7 @@ body {
 .menu-header {
     font-weight: bold;
     color: #888;
-    font-size: 14px;
+    font-size: 20px;
     margin-bottom: 10px;
 }
 .username {
@@ -32,7 +37,7 @@ body {
     color: #000;
     position: absolute;
     bottom: 0;
-    width: 100%; /* Esto asegura que ocupe todo el ancho del sidebar */
+    width: 100%; 
 }
 .menu-item-icon {
     font-size: 24px;
