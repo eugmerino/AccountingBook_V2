@@ -4,5 +4,5 @@ from . import views
 # parametro '' se muestra en el navegador
 # parametro name= se ocupa en los redirect
 urlpatterns = [
-    path('empleados/',views.userMainView, name="empleados")
+    path('empresa&usuarios/',views.companyUserView, name="empresa&usuarios")
 ]

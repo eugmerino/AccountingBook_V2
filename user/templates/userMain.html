@@ -1,7 +1,120 @@
 {% extends "base.html" %}
 {% block content %}
-    <form>{% csrf_token %}</form>
-    <div class="text-white">
-        <h1>Hello</h1>
+<form>{% csrf_token %}</form>
+<div class="row text-white">
+    <div class="col mt-3">
+        <div class="row">
+            <div class="col">
+                <h3>Empresas</h3>
+            </div>
+            <div class="col text-end">
+                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalCompany">Nueva Empresa</button>
+            </div>
+        </div>
+        <div class="row m-1 table-container">
+            {% if message %}
+            <div class="alert alert-light alert-dismissible mt-2">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                {{message}}
+            </div>
+            {% endif %}
+            <table class="table table-hover" data-bs-theme="dark">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for company in companies %}
+                    <tr>
+                        <td>{{company.name}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
+    <div class="col mt-3">
+        <h3>Roles</h3>
+        Ver esta apartado de los roles
+    </div>
+</div>
+<div class="row text-white mt-3">
+    <div class="row">
+        <div class="col">
+            <h3>Usuarios</h3>
+        </div>
+        <div class="col text-end">
+            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalUsers">Nuevo Usuario</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="row m-1">
+            <table class="table table-hover" data-bs-theme="dark">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Empresa</th>
+                        <th>Rol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{user.first_name}}</td>
+                        <td>{{user.last_name}}</td>
+                        <td>{{user.company}}</td>
+                        <td>{{user.groups}} Para ver los grupos se tiene que hacer otro query</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--Modal user-->
+    <div class="modal text-dark" id="modalUsers">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Nuevo usuario</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{formUser}}
+                        <div class="mt-3 text-end">
+                            <button type="submit" class="btn btn-dark">Crear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal company-->
+    <div class="modal text-dark" id="modalCompany">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Nueva Compañia</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{formCompany}}
+                    <div class="mt-3 text-end">
+                        <button type="submit" class="btn btn-light">Crear</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
