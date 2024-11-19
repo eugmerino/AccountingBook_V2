@@ -54,3 +54,26 @@ hr.divider-rounded {
     max-height: 350px;
     overflow-y: auto; 
 }
+
+/* Estiliza la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+    height: 12px; /* Alto para barras de desplazamiento horizontal */
+}
+
+/* Estiliza el "track" o pista de la barra */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color de fondo de la pista */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Estiliza el "thumb" o el deslizador de la barra */
+::-webkit-scrollbar-thumb {
+    background: #888; /* Color del deslizador */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Cambia el color del deslizador al hacer hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color del deslizador al pasar el mouse */
+}

@@ -1,43 +1,65 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import Company,User
-from .forms import companiesForm,usersForm
+from .models import Company,User,Period
+from .forms import companiesForm,usersForm,periodForm
+from django.contrib.auth.models import Group
 
-#Pagina principal de control de empresas
+
 @login_required(login_url="login")
 def companyUserView(request):
-    all_companies = Company.objects.all()
-    all_users = User.objects.all()
-    formCompany = companiesForm()
-    formUser = usersForm()
-    message = ''
-    
-    if request.method == 'POST':
-        formCompany = companiesForm(request.POST)
-        formUser = usersForm(request.POST)
+    """
+        Da acceso al gerente para ver y agregar datos de periodos y usuarios de la empresa que fue asignado
+    """
+    message = ""
 
-        if formCompany.is_valid():
-            if not formCompany.isDuplicate:
-                formCompany.save()
-                formCompany = companiesForm()
-                all_companies = Company.objects.all()
-                message = "Empresa creada exitosamente!"
-            else:
-                message = "Ya existe una empresa con ese nombre!"
-        
+    companyUser = request.user.company
+
+    periodsCompany = Period.objects.filter(company=companyUser)
+    usersCompany = User.objects.filter(company=companyUser)
+
+    formPeriod = periodForm(company=companyUser)
+    formUser = usersForm(company=companyUser)
+
+    if request.method == 'POST':
+        formPeriod = periodForm(request.POST,company=companyUser)
+
+        if formPeriod.is_valid():
+            formPeriod.save()
+            formPeriod = periodForm(company=companyUser)
+            periodsCompany = Period.objects.filter(company=companyUser)
+            message = "Periodo creado exitosamente!"
+        else:
+            message = "Ocurrio un error, ingrese al formulario!"
+
+        formUser = usersForm(request.POST, company=companyUser)
+
         if formUser.is_valid():
             formUser.save()
-            formUser = usersForm()
-            all_users = User.objects.all()
+            formUser = usersForm(company=companyUser)
+            usersCompany = User.objects.filter(company=companyUser)
+            message = "Usuario creado exitosamente!"
+        else:
+            message = "Ocurrio un error, ingrese al formulario de usuario!"
 
-            
+    
+    userWithGroups = [
+        {
+            "user": user,
+            "groups": user.groups.all()
+        }
+        for user in usersCompany
+    ]
+    
+
     objects = {
-        "companies":all_companies,
-        "formCompany":formCompany,
-        "formUser": formUser,
+        "company":companyUser,
+        "periods":periodsCompany,
+        "users":userWithGroups,
+        "formPeriod":formPeriod,
+        "formUser":formUser,
         "message":message,
-        "users":all_users
     }
-    return render(request,'userMain.html',objects)
+    return render(request, 'userMain.html', objects)
+
 
 # Create your views here.

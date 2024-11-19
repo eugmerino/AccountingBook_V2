@@ -26,7 +26,7 @@
                     <div class="menu-container flex-grow-1">
                         <a href="{% url "dashboard" %}">
                             <div class="menu-header">AccountingBook</div>
-                            <div class="username">{{user}}</div>
+                            <div class="username">{{ user_full_name }}</div>
                         </a>
                         <a href="#" class="menu-item a-text-navbar text-decoration-none d-flex align-items-center">
                             <span class="menu-item-icon"><img src="{% static 'img/align-left.png' %}" alt="Icon Cuentas"></span>
@@ -72,10 +72,21 @@
                             </div>
                         </a>
                         <hr class="divider-rounded">
-                        <a href="{% url 'empresa&usuarios' %}" class="menu-item text-decoration-none d-flex align-items-center">
-                            <span class="menu-item-icon"><img src="{% static 'img/users.png' %}" alt="Icon Balance general"></span>
+                        <!--Validación que carga el enlace gerentes-->
+                        {% for group in user_groups %}
+                            {% if group.name == "Gerente" %}
+                            <a href="{% url 'empresa&usuarios' %}" class="menu-item text-decoration-none d-flex align-items-center">
+                                <span class="menu-item-icon"><img src="{% static 'img/users.png' %}" alt="Icon Balance general"></span>
+                                <div class="menu-item-text ms-2">
+                                    <div>Empresa y Usuarios</div>
+                                </div>
+                            </a>
+                            {% endif %}
+                        {% endfor %}
+                        <a href="#" class="menu-item text-decoration-none d-flex align-items-center">
+                            <span class="menu-item-icon"><img src="{% static 'img/user.png' %}" alt="Icon Balance general"></span>
                             <div class="menu-item-text ms-2">
-                                <div>Empresas y Usuarios</div>
+                                <div>Perfil</div>
                             </div>
                         </a>
                         
