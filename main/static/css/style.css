@@ -1,0 +1,79 @@
+a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.menu-container {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #F4F4EF;
+}
+.menu-header {
+    font-weight: bold;
+    color: #888;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.username {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    color: #000;
+}
+.menu-item-bottom {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    color: #000;
+    position: absolute;
+    bottom: 0;
+    width: 100%; 
+}
+.menu-item-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+.menu-item-text {
+    flex-grow: 1;
+}
+.menu-item-action {
+    font-size: 16px;
+    color: #888;
+}
+
+hr.divider-rounded {
+    border-top: 2px solid #bbb;
+}
+
+.table-container {
+    max-height: 350px;
+    overflow-y: auto; 
+}
+
+/* Estiliza la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+    height: 12px; /* Alto para barras de desplazamiento horizontal */
+}
+
+/* Estiliza el "track" o pista de la barra */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color de fondo de la pista */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Estiliza el "thumb" o el deslizador de la barra */
+::-webkit-scrollbar-thumb {
+    background: #888; /* Color del deslizador */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Cambia el color del deslizador al hacer hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color del deslizador al pasar el mouse */
+}

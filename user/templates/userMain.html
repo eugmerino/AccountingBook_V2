@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% if message %}
+    <div class="row mt-3">
+        <div class="alert alert-light alert-dismissible mt-2">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            {{message}}
+        </div>
+    </div>
+{% endif %}
+<div class="row mt-3 text-white">
+    <div class="col">
+        <h3>Empresa</h3>
+        <div class="card">
+            <div class="card-body">
+                <h3>{{company.name}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <h3>Ciclos</h3>
+            </div>
+            <div class="col text-end me-3">
+                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalPeriod">Nuevo ciclo</button>
+            </div>
+        </div>
+        <div class="row me-3 ms-3">
+            <table class="table table-hover" data-bs-theme="dark">
+                <thead>
+                    <tr>
+                        <th>Año</th>
+                        <th>Ciclo Abierto</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for period in periods %}
+                        <tr>
+                            <td>{{period.year}}</td>
+                            <td>
+                                {% if period.isOpen %}
+                                <img src="{% static 'img/check.png' %}" alt="">
+                                {% else %}
+                                <img src="{% static 'img/minus.png' %}" alt="">
+                                {% endif %}
+                            </td>
+                            <td>{{period.description}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row mt-3 text-white">
+    <div class="row">
+        <div class="col">
+            <h3>Usuarios</h3>
+        </div>
+        <div class="col text-end">
+            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalUsers">Nuevo Usuario</button>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-hover" data-bs-theme="dark">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Activo</th>
+                    <th>Rol</th>
+                    <th>Nombre usuario</th>
+                    <th>Correo</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in users %}
+                <tr>
+                    <td>{{ u.user.first_name }}</td>
+                    <td>{{ u.user.last_name }}</td>
+                    <td>
+                        {% if u.user.is_active %}
+                            <img src="{% static 'img/check.png' %}" alt="">
+                            {% else %}
+                            <img src="{% static 'img/minus.png' %}" alt="">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% for group in u.groups %}
+                            {{ group.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{ u.user.username }}</td>
+                    <td>{{ u.user.email }}</td>
+                    <td>
+                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalEditUser"><img src="{% static 'img/edit.png' %}" alt=""></button>
+                        <button class="btn btn-light"><img src="{% static 'img/delete.png' %}" alt=""></button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--Modal period-->
+<div class="modal text-dark" id="modalPeriod">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Nuevo Ciclo</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{formPeriod}}
+                <div class="mt-3 text-end">
+                    <button type="submit" class="btn btn-light">Crear</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal text-dark" id="modalUsers">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Nuevo usuario</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{formUser}}
+                    <div class="mt-3 text-end">
+                        <button type="submit" class="btn btn-dark">Crear</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
